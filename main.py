@@ -1,11 +1,12 @@
 import os
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from dotenv import load_dotenv
+from flask_cors import CORS
 load_dotenv()
 
 app=Flask(__name__)
-
+CORS(app)
 API_KEY= os.getenv('OPENWEATHER_API_KEY')
 BASE_URL='https://api.openweathermap.org/data/2.5/weather'
 
@@ -41,7 +42,9 @@ def get_weather(city):
         return {'error':f'API error: {response.status_code} '}
     except Exception as e:
         return{'error':str(e)}
-    
+@app.route('/')
+def index():
+    return render_template('index.html') 
     
 @app.route('/api/weather',methods=['GET'])
 def weather_api():

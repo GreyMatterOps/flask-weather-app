@@ -1,18 +1,60 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
 </head>
+
 <body>
-    <h2>Today's Mood: Weather Edition</h2>
+    <div class="container">
+        <h2>Today's Mood: Weather Edition</h2>
 
+        <div class="search-section">
+            <input type="text" id="cityInput" placeholder="Where are you today?">
+            <button onclick="searchWeather()">Search</button>
+        </div>
+
+        <div class="error" id="errorMessage"></div>
+        <div class="loading" id="loading">Loading...</div>
+
+        <div class="weather-info" id="weatherInfo">
+            <h2 id="cityName"></h2>
+            <div class="weather-detail">
+                <span>Temperature</span>
+                <span id="temperature"></span>
+            </div>
+            <div class="weather-detail">
+                <span>Feels Like</span>
+                <span id="feelsLike"></span>
+            </div>
+            <div class="weather-detail">
+                <span>Description</span>
+                <span id="description"></span>
+            </div>
+            <div class="weather-detail">
+                <span>Humidity</span>
+                <span id="humidity"></span>
+            </div>
+            <div class="weather-detail">
+                <span>Pressure</span>
+                <span id="pressure"></span>
+            </div>
+            <div class="weather-detail">
+                <span>Wind Speed</span>
+                <span id="windSpeed"></span>
+            </div>
+            <div class="weather-detail">
+                <span>Cloudiness:</span>
+                <span id="cloudiness"></span>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
-<form>
-    <input type="text" name="city" placeholder="Where are you today?">
-    <button type="submit">Search</button>
 
-</form>
+
 </html>
--->
